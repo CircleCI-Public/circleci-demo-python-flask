@@ -1,0 +1,34 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/circulate
+    docker:
+      - image: python:3.6.0
+        environment:
+          FLASK_CONFIG: testing
+          TEST_DATABASE_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
+      - image: postgres:9.6.2
+        environment:
+          POSTGRES_USER: ubuntu
+          POSTGRES_DB: circle_test
+          POSTGRES_PASSWORD: ""
+      - image: selenium/standalone-chrome:3.1.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: projectname-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
+      - run:
+          name: Install Dependencies
+          command: pip install -r requirements/dev.txt
+      - run:
+          # this can be removed
+          name: Locate site Packages
+          command: python -c "import site; print(site.getsitepackages())"
+      - save_cache:
+          key: projectname-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
+          paths:
+            - "~/.cache/pip"
+            - "/usr/local/lib/python3.6/site-packages"
+      - run:
+          name: Run Tests
+          command: python manage.py test
