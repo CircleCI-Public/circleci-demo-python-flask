@@ -21,9 +21,8 @@ jobs:
           name: Install Dependencies
           command: pip install -r requirements/dev.txt
       - run:
-          # this can be removed
-          name: Locate site Packages
-          command: python -c "import site; print(site.getsitepackages())"
+          name: setup Heroku
+          command: bash .circleci/setup-heroku.sh
       - save_cache:
           key: projectname-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
           paths:
@@ -37,3 +36,14 @@ jobs:
           destination: tr1
       - store_test_results:
           path: test-reports/
+      - add_ssh_keys:
+          fingerprints:
+            - "48:a0:87:54:ca:75:32:12:c6:9e:a2:77:a4:7a:08:a4"
+      - deploy:
+          name: Deploy Master to Heroku
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              git push heroku master
+              heroku run python manage.py deploy
+              heroku restart
+            fi
