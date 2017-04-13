@@ -16,21 +16,23 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: projectname-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
+          key: deps1-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
       - run:
-          name: Install Dependencies
-          command: pip install -r requirements/dev.txt
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements/dev.txt
       - run:
           name: setup Heroku
           command: bash .circleci/setup-heroku.sh
       - save_cache:
-          key: projectname-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
+          key: deps1-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
           paths:
-            - "~/.cache/pip"
-            - "/usr/local/lib/python3.6/site-packages"
+            - "venv"
       - run:
-          name: Run Tests
-          command: python manage.py test
+          command: |
+            . venv/bin/activate
+            python manage.py test
       - store_artifacts:
           path: test-reports/
           destination: tr1
