@@ -7,9 +7,9 @@ mahine:
     TEST_DATABASE_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
 
 dependencies:
-  override:
-    - python3 -m venv venv;
-    - . venv/bin/activate;
+  post:
+    #- python3 -m venv venv;
+    #- . venv/bin/activate;
     - pip install -r requirements/dev.txt
     - bash .circleci/setup-heroku.sh
 
