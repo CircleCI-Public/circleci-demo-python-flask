@@ -62,3 +62,5 @@ See the `tests` directory for details.
 - run with coverage on CircleCI
 - make email testing work on CircleCI with mailhog
 - make email work on the deployed Heroku app
+
+---
