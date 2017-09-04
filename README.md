@@ -1,6 +1,6 @@
 # Circulate - Demo App for CircleCI
 
-[![CircleCI](https://circleci.com/gh/CircleCI-Public/circleci-demo-python-flask.svg?style=svg&circle-token=6715e4f37e6b8cee04ea7f1812ac00fb135199f9)
+[![CircleCI](https://circleci.com/gh/CircleCI-Public/circleci-demo-python-flask.svg?style=svg&circle-token=6715e4f37e6b8cee04ea7f1812ac00fb135199f9)](https://circleci.com/gh/CircleCI-Public/circleci-demo-python-flask/)
 
 This is a working application that you can use to learn how to build, test and deploy with CircleCI 2.0. Follow the [Project Walkthrough](https://circleci.com/docs/2.0/project-walkthrough/) guide here.
 
