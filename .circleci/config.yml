@@ -1,18 +1,16 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/circulate
     docker:
-      - image: python:3.6.0
+      - image: circleci/python:3.6.2-stretch-browsers
         environment:
           FLASK_CONFIG: testing
           TEST_DATABASE_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
-      - image: postgres:9.6.2
+      - image: circleci/postgres:9.6.5-alpine-ram
         environment:
           POSTGRES_USER: ubuntu
           POSTGRES_DB: circle_test
           POSTGRES_PASSWORD: ""
-      - image: selenium/standalone-chrome:3.1.0
     steps:
       - checkout
       - restore_cache:
