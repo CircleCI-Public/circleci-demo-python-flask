@@ -14,7 +14,6 @@ jobs:
     steps:
       - checkout
       - run: mkdir test-reports
-      - run: mkdir test-reports/pytest
       - run:
           name: Download Selenium
           command: |
@@ -43,10 +42,10 @@ jobs:
             . venv/bin/activate
             python manage.py test
       - store_artifacts:
-          path: test-reports/result/
+          path: test-reports/
           destination: tr1
       - store_test_results:
-          path: test-reports/result/
+          path: test-reports/
       - add_ssh_keys:
           fingerprints:
             - "48:a0:87:54:ca:75:32:12:c6:9e:a2:77:a4:7a:08:a4"
