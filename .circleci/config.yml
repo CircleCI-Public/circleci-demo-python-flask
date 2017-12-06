@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Start Selenium
           command: |
-            java -jar selenium-server-standalone-3.5.3.jar -log test-reports/pytest/selenium.log
+            java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
           background: true
       - restore_cache:
           key: deps1-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
@@ -46,7 +46,7 @@ jobs:
           path: test-reports/
           destination: tr1
       - store_test_results:
-          path: test-reports/pytest/
+          path: test-reports/
       - add_ssh_keys:
           fingerprints:
             - "48:a0:87:54:ca:75:32:12:c6:9e:a2:77:a4:7a:08:a4"
