@@ -43,7 +43,7 @@ jobs:
             python manage.py test
       - store_artifacts:
           path: /
-          destination: tr1
+      #    destination: tr1
       - store_test_results:
           path: /
       - add_ssh_keys:
