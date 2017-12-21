@@ -45,4 +45,4 @@ jobs:
           path: test-reports/
           destination: tr1
       - store_test_results:
-          path: test-reports/
+          path: test-reports/selenium
