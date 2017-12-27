@@ -111,4 +111,4 @@ workflows:
       - build_three
       - test_three:
           requires:
-            -build_three
+            - build_three
