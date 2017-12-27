@@ -68,10 +68,7 @@ jobs:
       - run: mkdir new-reports
   build_three:
     docker:
-      - image: circleci/python:3.6.2-stretch-browsers
-        environment:
-          FLASK_CONFIG: testing
-          TEST_DATABASE_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
+      - image: circleci/python:3
     steps:
       - checkout
       - run: echo "hi everyone!"
@@ -91,7 +88,7 @@ jobs:
       - run: echo "World"
   test_three:
     docker:
-      - image: circleci/python:3.6.2-stretch-browsers
+      - image: circleci/python:3
     steps:
       - checkout
       - run: mkdir a_new_folder
