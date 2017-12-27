@@ -66,9 +66,29 @@ jobs:
     steps:
       - checkout
       - run: mkdir new-reports
+  test_one:
+    docker:
+      - image: circleci/python:3.6.2-stretch-browsers
+    steps:
+      - checkout
+      - run: mkdir a_new_folder
+      - run: echo "hello"
+  test_two:
+    docker:
+      - image: circleci/python:3.6.2-stretch-browsers
+    steps:
+      - checkout
+      - run: mkdir a_new_folder
+      - run: echo "World"
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
+      - test_one:
+          requires:
+            - build
       - build_two
+      - test_two:
+          requires:
+            - build_two
