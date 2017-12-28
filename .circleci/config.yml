@@ -99,13 +99,13 @@ workflows:
     jobs:
       - build
       - test_one:
-        requires:
-          - build
+          requires:
+            - build
       - build_two
       - test_two:
-        requires:
-          - build_two
+          requires:
+            - build_two
       - build_three
       - test_three:
-        requires:
-          - build_three
+          requires:
+            - build_three
