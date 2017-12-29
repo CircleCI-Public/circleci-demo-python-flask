@@ -109,3 +109,6 @@ workflows:
       - test_three:
           requires:
             - build_three
+  second_workflow:
+      - build_three
+      - build_two
