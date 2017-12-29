@@ -118,7 +118,7 @@ workflows:
     jobs:
       - build_three
       - build_two
-  - notify:
-      requires:
-        - build_three
-        - build_two
+  notify:
+    requires:
+      - build_and_test
+      - second_workflow
