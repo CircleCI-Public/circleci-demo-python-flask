@@ -113,3 +113,7 @@ workflows:
     jobs:
       - build_three
       - build_two
+notify:
+  webhooks:
+    # A list of hook hashes, containing the URL field
+    - url: https://requestb.in/xpozh7xp
