@@ -110,5 +110,6 @@ workflows:
           requires:
             - build_three
   second_workflow:
+    jobs:
       - build_three
       - build_two
