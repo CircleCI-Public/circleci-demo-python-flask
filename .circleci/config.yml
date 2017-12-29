@@ -93,12 +93,11 @@ jobs:
       - checkout
       - run: mkdirs a_new_folder
       - run: echo "World"
-  failed_workflow:
-    notify:
-      when: on_fail
-      webhooks:
-      # A list of hook hashes, containing the URL field
-        - url: https://requestb.in/xpozh7xp
+notify:
+  when: on_fail
+  webhooks:
+    # A list of hook hashes, containing the URL field
+     - url: https://requestb.in/xpozh7xp
 workflows:
   version: 2
   build_and_test:
@@ -119,7 +118,7 @@ workflows:
     jobs:
       - build_three
       - build_two
-      - failed_workflow:
-          requires:
-            - build_three
-            - build_two
+  - notify:
+      requires:
+        - build_three
+        - build_two
