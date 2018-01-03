@@ -58,68 +58,68 @@ jobs:
       #         heroku run python manage.py deploy
       #         heroku restart
       #       fi
-  build_two:
-    docker:
-      - image: circleci/python:3.6.2-stretch-browsers
-        environment:
-          FLASK_CONFIG: testing
-          TEST_DATABASE_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
-    steps:
-      - checkout
-      - run: mkdir new-reports
-  build_three:
-    docker:
-      - image: circleci/python:3
-    steps:
-      - checkout
-      - run: echo "hi everyone!"
-  test_one:
-    docker:
-      - image: circleci/python:3.6.2-stretch-browsers
-    steps:
-      - checkout
-      - run: mkdir a_new_folder
-      - run: echo "hello"
-  test_two:
-    docker:
-      - image: circleci/python:3.6.2-stretch-browsers
-    steps:
-      - checkout
-      - run: mkdir a_new_folder
-      - run: echo "World"
-  test_three:
-    docker:
-      - image: circleci/python:3
-    steps:
-      - checkout
-      - run: mkdirs a_new_folder
-      - run: echo "World"
-notify:
-  when: on_fail
-  webhooks:
-    # A list of hook hashes, containing the URL field
-     - url: https://requestb.in/xpozh7xp
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
-      - test_one:
-          requires:
-            - build
-      - build_two
-      - test_two:
-          requires:
-            - build_two
-      - build_three
-      - test_three:
-          requires:
-            - build_three
-  second_workflow:
-    jobs:
-      - build_three
-      - build_two
-  notify:
-    requires:
-      - build_and_test
-      - second_workflow
+#   build_two:
+#     docker:
+#       - image: circleci/python:3.6.2-stretch-browsers
+#         environment:
+#           FLASK_CONFIG: testing
+#           TEST_DATABASE_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
+#     steps:
+#       - checkout
+#       - run: mkdir new-reports
+#   build_three:
+#     docker:
+#       - image: circleci/python:3
+#     steps:
+#       - checkout
+#       - run: echo "hi everyone!"
+#   test_one:
+#     docker:
+#       - image: circleci/python:3.6.2-stretch-browsers
+#     steps:
+#       - checkout
+#       - run: mkdir a_new_folder
+#       - run: echo "hello"
+#   test_two:
+#     docker:
+#       - image: circleci/python:3.6.2-stretch-browsers
+#     steps:
+#       - checkout
+#       - run: mkdir a_new_folder
+#       - run: echo "World"
+#   test_three:
+#     docker:
+#       - image: circleci/python:3
+#     steps:
+#       - checkout
+#       - run: mkdirs a_new_folder
+#       - run: echo "World"
+# notify:
+#   when: on_fail
+#   webhooks:
+#     # A list of hook hashes, containing the URL field
+#      - url: https://requestb.in/xpozh7xp
+# workflows:
+#   version: 2
+#   build_and_test:
+#     jobs:
+#       - build
+#       - test_one:
+#           requires:
+#             - build
+#       - build_two
+#       - test_two:
+#           requires:
+#             - build_two
+#       - build_three
+#       - test_three:
+#           requires:
+#             - build_three
+#   second_workflow:
+#     jobs:
+#       - build_three
+#       - build_two
+#   notify:
+#     requires:
+#       - build_and_test
+#       - second_workflow
