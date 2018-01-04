@@ -58,24 +58,24 @@ jobs:
       #         heroku run python manage.py deploy
       #         heroku restart
       #       fi
-#   build_two:
-#     docker:
-#       - image: circleci/python:3.6.2-stretch-browsers
-#         environment:
-#           FLASK_CONFIG: testing
-#           TEST_DATABASE_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
-#     steps:
-#       - checkout
-#       - run: mkdir new-reports
+  build_TWO:
+    docker:
+      - image: circleci/python:3.6.2-stretch-browsers
+        environment:
+          FLASK_CONFIG: testing
+          TEST_DATABASE_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
+    steps:
+      - checkout
+      - run: mkdir new-reports
 #   build_three:
 #     docker:
 #       - image: circleci/python:3
 #     steps:
 #       - checkout
 #       - run: echo "hi everyone!"
-#   test_one:
-#     docker:
-#       - image: circleci/python:3.6.2-stretch-browsers
+  test_one:
+    docker:
+      - image: circleci/python:3.6.2-stretch-browsers
 #     steps:
 #       - checkout
 #       - run: mkdir a_new_folder
@@ -99,15 +99,15 @@ jobs:
 #   webhooks:
 #     # A list of hook hashes, containing the URL field
 #      - url: https://requestb.in/xpozh7xp
-# workflows:
-#   version: 2
-#   build_and_test:
-#     jobs:
-#       - build
-#       - test_one:
-#           requires:
-#             - build
-#       - build_two
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test_one:
+          requires:
+            - build
+      - build_TWO
 #       - test_two:
 #           requires:
 #             - build_two
