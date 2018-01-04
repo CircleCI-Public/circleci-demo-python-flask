@@ -76,10 +76,10 @@ jobs:
   test_one:
     docker:
       - image: circleci/python:3.6.2-stretch-browsers
-#     steps:
-#       - checkout
-#       - run: mkdir a_new_folder
-#       - run: echo "hello"
+    steps:
+      - checkout
+      - run: mkdir a_new_folder
+      - run: echo "hello"
 #   test_two:
 #     docker:
 #       - image: circleci/python:3.6.2-stretch-browsers
