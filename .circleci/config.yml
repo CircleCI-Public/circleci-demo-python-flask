@@ -101,12 +101,16 @@ jobs:
 #      - url: https://requestb.in/xpozh7xp
 workflows:
   version: 2
-  build_and_test:
+  nightly:
+    triggers:
+      - schedule:
+          cron: "9 2 * * *"
+          filters:
+            branches:
+              only:
+                - master
     jobs:
       - build
-      - build_TWO:
-          requires:
-            - build
       # - hold:
       #     type: approval
       #     requires:
