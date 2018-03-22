@@ -101,14 +101,14 @@ jobs:
 #      - url: https://requestb.in/xpozh7xp
 workflows:
   version: 2
-  nightly:
-    triggers:
-      - schedule:
-          cron: "47 15-18 * * *"
-          filters:
-            branches:
-              only:
-                - master
+  # nightly:
+  #   triggers:
+  #     - schedule:
+  #       cron: "47 15-18 * * *"
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
     jobs:
       - build
       # - hold:
