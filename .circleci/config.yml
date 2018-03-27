@@ -14,6 +14,10 @@ jobs:
     steps:
       - checkout
       - run: mkdir test-reports
+      - run: 
+          name: Contexts
+          command: |
+            echo Saras_Test
       - run:
           name: Download Selenium
           command: |
@@ -111,14 +115,15 @@ workflows:
   #               - master
     jobs:
       - build
+                  context: Testing
       # - hold:
       #     type: approval
       #     requires:
       #      - build_TWO
-#       - test_two:
-#           requires:
-#             - build_two
-#       - build_three
+      - test_two:
+          requires:
+            - build
+      - build_three
 #       - test_three:
 #           requires:
 #             - build_three
