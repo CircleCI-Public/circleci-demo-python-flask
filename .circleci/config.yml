@@ -105,21 +105,14 @@ jobs:
 #      - url: https://requestb.in/xpozh7xp
 workflows:
   version: 2
-  # nightly:
-  #   triggers:
-  #     - schedule:
-  #       cron: "47 15-18 * * *"
-  #         filters:
-  #           branches:
-  #             only:
-  #               - master
-  jobs:
-    build:
-      context: Testing
-    test_two:
-      requires:
-        - build
-    build_three
+  testing_contexts:
+    jobs:
+      - build:
+        context: Testing
+      - test_two:
+        requires:
+          - build
+      - build_three
 #       - test_three:
 #           requires:
 #             - build_three
