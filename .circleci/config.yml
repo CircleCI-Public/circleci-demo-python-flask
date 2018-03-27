@@ -108,10 +108,8 @@ workflows:
   testing_contexts:
     jobs:
       - build:
-        context: Testing
-      - test_two:
-        requires:
-          - build
+          context: Testing
+      - test_two
       - build_three
 #       - test_three:
 #           requires:
