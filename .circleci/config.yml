@@ -71,12 +71,12 @@ jobs:
     steps:
       - checkout
       - run: mkdir new-reports
-#   build_three:
-#     docker:
-#       - image: circleci/python:3
-#     steps:
-#       - checkout
-#       - run: echo "hi everyone!"
+  build_three:
+    docker:
+      - image: circleci/python:3
+    steps:
+      - checkout
+      - run: echo "hi everyone!"
   test_one:
     docker:
       - image: circleci/python:3.6.2-stretch-browsers
@@ -114,8 +114,8 @@ workflows:
   #             only:
   #               - master
     jobs:
-      - build
-                  context: Testing
+      - build:
+        context: Testing
       # - hold:
       #     type: approval
       #     requires:
