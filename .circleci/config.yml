@@ -113,17 +113,17 @@ workflows:
   #           branches:
   #             only:
   #               - master
-    jobs:
-      - build:
+  jobs:
+    - build:
         context: Testing
-      # - hold:
-      #     type: approval
-      #     requires:
-      #      - build_TWO
-      - test_two:
-          requires:
-            - build
-      - build_three
+    # - hold:
+    #     type: approval
+    #     requires:
+    #      - build_TWO
+    - test_two:
+        requires:
+          - build
+    - build_three
 #       - test_three:
 #           requires:
 #             - build_three
