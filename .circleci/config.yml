@@ -114,12 +114,12 @@ workflows:
   #             only:
   #               - master
   jobs:
-    - build:
-        context: Testing
-    - test_two:
-        requires:
-          - build
-    - build_three
+    build:
+      context: Testing
+    test_two:
+      requires:
+        - build
+    build_three
 #       - test_three:
 #           requires:
 #             - build_three
