@@ -14,10 +14,6 @@ jobs:
     steps:
       - checkout
       - run: mkdir test-reports
-      - run: 
-          name: Contexts
-          command: |
-            echo Saras_Test
       - run:
           name: Download Selenium
           command: |
@@ -45,6 +41,10 @@ jobs:
           command: |
             . venv/bin/activate
             python manage.py test
+      - run: 
+          name: Contexts
+          command: |
+            echo Saras_Test
 
       - store_test_results:
           path: test-reports/
@@ -109,7 +109,7 @@ workflows:
     jobs:
       - build:
           context: Testing
-      - test_two
+      - build_TWO
       - build_three
 #       - test_three:
 #           requires:
