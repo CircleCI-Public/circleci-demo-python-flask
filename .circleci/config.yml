@@ -105,12 +105,17 @@ jobs:
 #      - url: https://requestb.in/xpozh7xp
 workflows:
   version: 2
-  testing_contexts:
+  test_holds:
     jobs:
-      - build:
-          context: Testing
+      - build
       - build_TWO
-      - build_three
+      - hold:
+          type: approval
+          requires:
+           - build_TWO
+           - build
+      - build_three:
+          requires: hold
 #       - test_three:
 #           requires:
 #             - build_three
