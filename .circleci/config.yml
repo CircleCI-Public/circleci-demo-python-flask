@@ -114,7 +114,7 @@ workflows:
       #     requires:
       #       - build_TWO
       #       - build
-      - build_three:
+      - build_three
           # requires: hold
 #       - test_three:
 #           requires:
