@@ -112,8 +112,8 @@ workflows:
       - hold:
           type: approval
           requires:
-           - build_TWO
-           - build
+            - build_TWO
+            - build
       - build_three:
           requires: hold
 #       - test_three:
