@@ -30,6 +30,11 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements/dev.txt
+      - run:
+          name: Create CIRCLE_PR_NUMBER
+          command: |
+            CIRCLE_PR_NUMBER=$(grep CIRCLE_PULL_REQUEST | tr -d 'https://github.com/sararead/circleci-demo-python-flask/pull/')
+            
       # - run:
       #     name: setup Heroku
       #     command: bash .circleci/setup-heroku.sh
