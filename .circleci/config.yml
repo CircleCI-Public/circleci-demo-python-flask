@@ -47,6 +47,8 @@ jobs:
       - store_test_results:
           path: test-reports/
   deploy-job:
+    docker:
+      - image: circleci/python:3.6.2-stretch-browsers
     steps:
       - checkout
       - run:
