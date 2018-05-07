@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build-job:
+  build:
     docker:
       - image: circleci/python:3.6.2-stretch-browsers
         environment:
@@ -43,7 +43,7 @@ jobs:
           destination: tr1
       - store_test_results:
           path: test-reports/
-  deploy-job:
+  deploy:
     docker:
       - image: circleci/python:3.6.2-stretch-browsers
     steps:
@@ -57,10 +57,10 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - build-job
-      - deploy-job:
+      - build
+      - deploy:
           requires:
-            - build-job
+            - build
           filters:
             branches:
               only: master
