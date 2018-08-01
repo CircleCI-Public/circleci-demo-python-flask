@@ -3,3 +3,4 @@
 -r requirements/common.txt
 Flask-SSLify==0.1.5
 gunicorn==19.7.1
+xmlrunner==1.7.7
