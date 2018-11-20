@@ -58,23 +58,23 @@ INFO  [alembic.runtime.migration] Will assume transactional DDL.
 
 Next, we'll show you how to test the app locally with the Flask development server.
 
-#### Run tests with the `test` argument
+### Run tests with the `test` argument
 ```python manage.py test```
 
-### Test report generation
+#### Test report generation
 This demo uses [unittest-xml-reporting](https://github.com/xmlrunner/unittest-xml-reporting) for JUNIT style report generation.
 
-### Unit Tests
+#### Unit Tests
 Unit testing was applied to:
 - database models (using [unittest](https://docs.python.org/3.7/library/unittest.html))
 - client view functions (using [Flask Test Client](http://flask.pocoo.org/docs/1.0/testing/))
 - API (using [Flask Test Client](http://flask.pocoo.org/docs/1.0/testing/))
 
-### Integration Tests
+#### Integration Tests
 
 Integration testing is completed for logging in, etc, using [Selenium](https://www.seleniumhq.org/) and [ChromeDriver](http://chromedriver.chromium.org/).
 
-## Deployment to Heroku
+### Deployment to Heroku
 
 The application also demonstrates how to deploy to Heroku from CircleCI 2.0. Please consult the [Project Walkthrough](https://circleci.com/docs/2.0/project-walkthrough/) for documentation on how this works.
 
