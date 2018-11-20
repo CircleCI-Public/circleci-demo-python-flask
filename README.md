@@ -21,7 +21,7 @@ The application also demonstrates how to deploy to Heroku from CircleCI 2.0. Ple
 ## Running locally
 **Note:** As mentioned above you don't need to run this application locally to learn about using CircleCI.
 
-1. Setup Your Repo and Local Environment
+### 1. Setup your Local Environment & Clone the Circulate Repo
 
 The following commandline instructions are for Mac users. For other operating systems, install Postgres [these](https://www.postgresql.org/download/) instructions, and Python using [these](https://www.python.org/downloads/) instructions.
 
@@ -41,23 +41,21 @@ $ python3 -m venv venv-name
 $ source venv/bin/activate
  ```
 
-2. Initialize your PostgreSQL database
+### 2. Initialize your PostgreSQL database
 `$ createdb circulate`
 
-3. Install your dependencies
+### 3. Install your dependencies
 `$ pip install -r requirements/dev.txt`
 
-4. Run `manage.py` and pass `deploy` as an argument to create the database model.
+### 4. Seed database and create tables
 ```
 $ python manage.py deploy
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
 ```
 
-5. Run Circulate's server and deploy locally.
-```
-python manage.py runserver
-```
+### 5. Run Circulate's server and deploy locally.
+`python manage.py runserver`
 
 Next, we'll show you how to test the app locally with the Flask development server.
 
