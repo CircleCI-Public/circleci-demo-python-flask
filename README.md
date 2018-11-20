@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/CircleCI-Public/circleci-demo-python-flask.svg?style=svg&circle-token=6715e4f37e6b8cee04ea7f1812ac00fb135199f9)](https://circleci.com/gh/CircleCI-Public/circleci-demo-python-flask/)
 
-**Original Author Credit:** This is directly based on Miguel Grinberg's excellent [Flasky](https://github.com/miguelgrinberg/flasky) application.
+**Credit:** This is directly based on the excellent [Flasky](https://github.com/miguelgrinberg/flasky) application by @miguelgrinberg.
 
 This is a working application using Python and Flask that you can use to learn how to build, test and deploy with CircleCI 2.0. Follow the [Project Walkthrough](https://circleci.com/docs/2.0/project-walkthrough/) guide here.
 
@@ -12,11 +12,7 @@ It's a 'social blogging' web application similar to Twitter. Users can create ac
 
 - You **do not need to know Python to follow the guide** in the CircleCI docs.
 - You will not need to install or setup a Python environment to follow the tutorial - you can follow along by making edits to config on GitHub if you wish.
-- No matter what language or stack you are going to use with CircleCI, we recommend following the walkthrough first, as it introduces concepts about CircleCI that you can then apply to your own project.
-
-## Deployment to Heroku
-
-The application also demonstrates how to deploy to Heroku from CircleCI 2.0. Please consult the [Project Walkthrough](https://circleci.com/docs/2.0/project-walkthrough/) for documentation on how this works.
+- No matter what language or stack you are going to use with CircleCI, we recommend following the [walkthrough](https://circleci.com/docs/2.0/project-walkthrough/) first, as it introduces concepts about CircleCI that you can then apply to your own project.
 
 ## Running locally
 **Note:** As mentioned above you don't need to run this application locally to learn about using CircleCI.
@@ -35,17 +31,17 @@ The following commandline instructions are for Mac users. For other operating sy
 `$ git clone git@github.com:CircleCI-Public/circleci-demo-python-flask.git`
 
 #### Create and activate a virtual environment
-For Ubuntu Linux, use `sudo apt-get install python3-venv`. 
-```
-$ python3 -m venv venv-name
-$ source venv/bin/activate
- ```
+
+`python3 -m venv venv-name`
+`source venv/bin/activate`
+
+**Note** For Ubuntu Linux, use `sudo apt-get install python3-venv`. 
 
 ### 2. Initialize your PostgreSQL database
-`$ createdb circulate`
+`createdb circulate`
 
 ### 3. Install your dependencies
-`$ pip install -r requirements/dev.txt`
+`pip install -r requirements/dev.txt`
 
 ### 4. Seed database and create tables
 ```
@@ -61,9 +57,10 @@ Next, we'll show you how to test the app locally with the Flask development serv
 
 ## Testing
 
-The Circulate demo app runs various tests using the command:
+Run tests with:
 `python manage.py test` 
 
+This demo uses [unittest-xml-reporting](https://github.com/xmlrunner/unittest-xml-reporting) for JUNIT style report generation.
 ### Unit Tests
 
 Unit testing was applied to:
@@ -75,9 +72,9 @@ Unit testing was applied to:
 
 Integration testing is completed for logging in, etc, using [Selenium](https://www.seleniumhq.org/) and [ChromeDriver](http://chromedriver.chromium.org/).
 
-### Test Report Formatting
+## Deployment to Heroku
 
-It uses [unittest-xml-reporting](https://github.com/xmlrunner/unittest-xml-reporting) for JUNIT style report generation.
+The application also demonstrates how to deploy to Heroku from CircleCI 2.0. Please consult the [Project Walkthrough](https://circleci.com/docs/2.0/project-walkthrough/) for documentation on how this works.
 
 ## TODO
 
