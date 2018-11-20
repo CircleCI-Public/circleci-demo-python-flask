@@ -12,38 +12,38 @@ It's a 'social blogging' web application similar to Twitter. Users can create ac
 - You will not need to install or setup a Python environment to follow the tutorial - you can follow along by making edits to config on GitHub if you wish.
 - No matter what language or stack you are going to use with CircleCI, we recommend following the [walkthrough](https://circleci.com/docs/2.0/project-walkthrough/) first, as it introduces concepts about CircleCI that you can then apply to your own project.
 
-## Running locally
+# Running locally
 **Note:** As mentioned above you don't need to run this application locally to learn about using CircleCI.
 
-### 1. Setup your Local Environment & Clone the Circulate Repo
+## 1. Setup your Local Environment & Clone the Circulate Repo
 
 The following commandline instructions are for Mac users. For other operating systems, install Postgres [these](https://www.postgresql.org/download/) instructions, and Python using [these](https://www.python.org/downloads/) instructions.
 
-#### Install Postgres
+### Install Postgres
 `$ brew install postgres`
 
-#### Install Python
+### Install Python
 `$ brew install python`
 
-#### Fork or clone this repository
+### Fork or clone this repository
 `$ git clone git@github.com:CircleCI-Public/circleci-demo-python-flask.git`
 
-#### Create and activate a virtual environment
+### Create and activate a virtual environment
 
 `python3 -m venv venv-name`
 `source venv/bin/activate`
 
 **Note** For Ubuntu Linux, use `sudo apt-get install python3-venv`. 
 
-### 2. Initialize your PostgreSQL database
+## 2. Initialize your PostgreSQL database
 `createdb circulate`
 
-### 3. Install your dependencies
+## 3. Install your dependencies
 `pip install -r requirements/dev.txt`
 
-### 4. Use the `manage.py` script
+## 4. Use the `manage.py` script to operate the app
 
-#### Seed database and create tables with the `deploy` argument
+### Seed database and create tables with the `deploy` argument
 ```
 python manage.py deploy
 ```
@@ -53,7 +53,7 @@ INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
 ```
 
-#### Run Circulate's server and deploy locally with the `runserver` argument
+### Run Circulate's server and deploy locally with the `runserver` argument
 `python manage.py runserver`
 
 Next, we'll show you how to test the app locally with the Flask development server.
@@ -74,7 +74,7 @@ Unit testing was applied to:
 
 Integration testing is completed for logging in, etc, using [Selenium](https://www.seleniumhq.org/) and [ChromeDriver](http://chromedriver.chromium.org/).
 
-### Deployment to Heroku
+## 5. Deployment to Heroku
 
 The application also demonstrates how to deploy to Heroku from CircleCI 2.0. Please consult the [Project Walkthrough](https://circleci.com/docs/2.0/project-walkthrough/) for documentation on how this works.
 
