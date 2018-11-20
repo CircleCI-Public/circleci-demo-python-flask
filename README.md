@@ -43,7 +43,10 @@ The following commandline instructions are for Mac users. For other operating sy
 
 ### 4. Seed database and create tables
 ```
-$ python manage.py deploy
+python manage.py deploy
+```
+Your output should show:
+```
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
 ```
@@ -55,12 +58,12 @@ Next, we'll show you how to test the app locally with the Flask development serv
 
 ## Testing
 
-Run tests with:
-`python manage.py test` 
+Run tests:
+```python manage.py test```
 
 This demo uses [unittest-xml-reporting](https://github.com/xmlrunner/unittest-xml-reporting) for JUNIT style report generation.
-### Unit Tests
 
+### Unit Tests
 Unit testing was applied to:
 - database models (using [unittest](https://docs.python.org/3.7/library/unittest.html))
 - client view functions (using [Flask Test Client](http://flask.pocoo.org/docs/1.0/testing/))
