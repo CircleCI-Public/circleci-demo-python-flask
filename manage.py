@@ -73,6 +73,7 @@ def deploy():
     upgrade()
 
     # create user roles
+    db.create_all()
     Role.insert_roles()
 
     # create self-follows for all users
