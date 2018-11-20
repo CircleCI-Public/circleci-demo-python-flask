@@ -41,7 +41,9 @@ The following commandline instructions are for Mac users. For other operating sy
 ### 3. Install your dependencies
 `pip install -r requirements/dev.txt`
 
-### 4. Seed database and create tables
+### 4. Use the `manage.py` script
+
+#### Seed database and create tables with the `deploy` argument
 ```
 python manage.py deploy
 ```
@@ -51,16 +53,15 @@ INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
 ```
 
-### 5. Run Circulate's server and deploy locally.
+#### Run Circulate's server and deploy locally with the `runserver` argument
 `python manage.py runserver`
 
 Next, we'll show you how to test the app locally with the Flask development server.
 
-## Testing
-
-Run tests:
+#### Run tests with the `test` argument
 ```python manage.py test```
 
+### Test report generation
 This demo uses [unittest-xml-reporting](https://github.com/xmlrunner/unittest-xml-reporting) for JUNIT style report generation.
 
 ### Unit Tests
