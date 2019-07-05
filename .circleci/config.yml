@@ -52,4 +52,4 @@ jobs:
       - deploy:
           name: Deploy Master to Heroku
           command: |
-            git push https://heroku:4e44acf8-2c42-499f-b8ba-48a950ea6bae@git.heroku.com/laravel-5408.git master
+            git push https://heroku:4e44acf8-2c42-499f-b8ba-48a950ea6bae@git.heroku.com/circleci-5408.git master
