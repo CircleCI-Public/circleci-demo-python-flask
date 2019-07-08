@@ -6,7 +6,7 @@
 
 {% block page_content %}
 <div class="page-header">
-    <h1>Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}! hogehogehoge</h1>
+    <h1>Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}! テスト失敗のテスト</h1>
 </div>
 <div>
     {% if current_user.can(Permission.WRITE_ARTICLES) %}
