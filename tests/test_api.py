@@ -112,7 +112,7 @@ class APITestCase(unittest.TestCase):
         # add a user
         r = Role.query.filter_by(name='User').first()
         self.assertIsNotNone(r)
-        u = User(email='john@example.com', password='hoge', confirmed=True,
+        u = User(email='john@example.com', password='cat', confirmed=True,
                  role=r)
         db.session.add(u)
         db.session.commit()
@@ -122,7 +122,7 @@ class APITestCase(unittest.TestCase):
             url_for('api.new_post'),
             headers=self.get_api_headers('john@example.com', 'cat'),
             data=json.dumps({'body': ''}))
-        self.assertTrue(response.status_code == 400)
+        self.assertTrue(response.status_code == 404)
 
         # write a post
         response = self.client.post(

@@ -40,7 +40,7 @@ jobs:
       - run:
           command: |
             . venv/bin/activate
-            python manage.py test
+            python manage.py test | tee test-output.log
       - store_artifacts:
           path: test-reports/
           destination: tr1
