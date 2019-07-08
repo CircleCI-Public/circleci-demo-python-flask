@@ -112,7 +112,7 @@ class APITestCase(unittest.TestCase):
         # add a user
         r = Role.query.filter_by(name='User').first()
         self.assertIsNotNone(r)
-        u = User(email='john@example.com', password='cat', confirmed=True,
+        u = User(email='john@example.com', password='hoge', confirmed=True,
                  role=r)
         db.session.add(u)
         db.session.commit()
