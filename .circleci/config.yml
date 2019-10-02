@@ -10,7 +10,7 @@ jobs:
         environment:
           POSTGRES_USER: ubuntu
           POSTGRES_DB: circle_test
-          POSTGRES_PASSWORD: ""
+          POSTGRES_PASSWORD: ''
     steps:
       - checkout
       - run: mkdir test-reports
@@ -24,7 +24,7 @@ jobs:
             java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
           background: true
       - restore_cache:
-          key: deps1-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
+          key: deps2-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
       - run:
           command: |
             python3 -m venv venv
@@ -34,9 +34,9 @@ jobs:
           name: setup Heroku
           command: bash .circleci/setup-heroku.sh
       - save_cache:
-          key: deps1-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
+          key: deps2-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
           paths:
-            - "venv"
+            - 'venv'
       - run:
           command: |
             . venv/bin/activate
@@ -48,7 +48,7 @@ jobs:
           path: test-reports/
       - add_ssh_keys:
           fingerprints:
-            - "48:a0:87:54:ca:75:32:12:c6:9e:a2:77:a4:7a:08:a4"
+            - '48:a0:87:54:ca:75:32:12:c6:9e:a2:77:a4:7a:08:a4'
       - deploy:
           name: Deploy Master to Heroku
           command: |
