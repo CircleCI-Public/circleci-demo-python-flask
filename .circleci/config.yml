@@ -1,4 +1,26 @@
-version: 2
+version: 2.1
+
+#########
+# Common
+#########
+orbs:
+  heroku: circleci/heroku@1.0.1
+
+############
+# Workflows
+############
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+
+##################
+# Job Definitions
+##################
 jobs:
   build:
     docker:
@@ -24,17 +46,14 @@ jobs:
             java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
           background: true
       - restore_cache:
-          key: deps2-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
+          key: deps2-{{ checksum "requirements/dev.txt" }}
       - run:
           command: |
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements/dev.txt
-      - run:
-          name: setup Heroku
-          command: bash .circleci/setup-heroku.sh
       - save_cache:
-          key: deps2-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
+          key: deps2-{{ checksum "requirements/dev.txt" }}
           paths:
             - 'venv'
       - run:
@@ -46,14 +65,18 @@ jobs:
           destination: tr1
       - store_test_results:
           path: test-reports/
+
+  deploy:
+    executor: heroku/default
+    steps:
+      - checkout
       - add_ssh_keys:
           fingerprints:
             - '48:a0:87:54:ca:75:32:12:c6:9e:a2:77:a4:7a:08:a4'
-      - deploy:
-          name: Deploy Master to Heroku
+      - heroku/install
+      - heroku/deploy-via-git
+      - run:
+          name: Push to Heroku master branch
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              git push heroku master
-              heroku run python manage.py deploy
-              heroku restart
-            fi
+            git push heroku master
+
