@@ -74,7 +74,8 @@ jobs:
           fingerprints:
             - '48:a0:87:54:ca:75:32:12:c6:9e:a2:77:a4:7a:08:a4'
       - heroku/install
-      - heroku/deploy-via-git
+      - heroku/deploy-via-git:
+          force: true
       - run:
           name: Push to Heroku master branch
           command: |
