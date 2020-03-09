@@ -17,6 +17,9 @@ workflows:
       - deploy:
           requires:
             - build
+          filters:
+            branches:
+              only: master
 
 ##################
 # Job Definitions
@@ -76,8 +79,4 @@ jobs:
       - heroku/install
       - heroku/deploy-via-git:
           force: true
-      - run:
-          name: Push to Heroku master branch
-          command: |
-            git push heroku master
 
