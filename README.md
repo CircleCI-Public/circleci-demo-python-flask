@@ -25,13 +25,14 @@ The application demonstrates how to deploy to Heroku from CircleCI 2.0. Please c
 **Note:** As mentioned above you don't need to run this application locally to learn about using CircleCI.
 
 - Install PostgreSQL (tested with 9.6.5)
-- Install Python (tested with Python 3.6.2)
+- Install Python (tested with Python 3.8)
 - Fork or clone this repository
 - Create and activate a virtual environment
 - Enter the following commands:
 
 ```
 createdb circulate
+python -m pip install --upgrade pip
 pip install -r requirements/dev.txt
 python manage.py deploy
 python manage.py runserver
