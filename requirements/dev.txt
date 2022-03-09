@@ -3,7 +3,7 @@ ForgeryPy==0.1
 Pygments==2.2.0
 colorama==0.3.9
 coverage==4.4.1
-httpie==1.0.3
+httpie==3.1.0
 requests==2.20.0
 selenium==3.5.0
 unittest-xml-reporting==2.1.0
