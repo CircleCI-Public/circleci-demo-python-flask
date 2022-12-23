@@ -23,3 +23,4 @@ blinker==1.4
 html5lib==1.0b10
 itsdangerous==0.24
 six==1.10.0
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
